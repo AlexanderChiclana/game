@@ -63,17 +63,19 @@ $(() => {
       console.log('x wins')
 
       bank = []
+        $('#winBox').html('X WINS')
 
     } else if (firstRowStr === oWins || secondRowStr === oWins || thirdRowStr === oWins || firstColStr ===
       oWins || secondColStr === oWins || thirdColStr === oWins || diagTopStr === oWins || diagBotStr === oWins) {
 
       console.log('O wins')
 
+
       bank = []
+      $('#winBox').html('O WINS')
     } else {
 
-      console.log('not yet')
-      return
+     console.log('not yet')
     }
   }
   /*
