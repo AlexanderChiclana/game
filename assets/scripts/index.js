@@ -186,7 +186,7 @@ $(() => {
       $('#B2').html(bank[0])
       firstRow[2] = bank[0]
       thirdCol[0] = bank[0]
-      diagTop[2] = bank[0]
+      diagBot[2] = bank[0]
 
 
       winCheck()
