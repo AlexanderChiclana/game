@@ -61,15 +61,19 @@ $(() => {
       secondColStr === xWins || thirdColStr === xWins || diagTopStr === xWins || diagBotStr === xWins) {
 
       console.log('x wins')
+
       bank = []
+
     } else if (firstRowStr === oWins || secondRowStr === oWins || thirdRowStr === oWins || firstColStr ===
       oWins || secondColStr === oWins || thirdColStr === oWins || diagTopStr === oWins || diagBotStr === oWins) {
 
       console.log('O wins')
+
       bank = []
     } else {
 
       console.log('not yet')
+      return
     }
   }
   /*
@@ -135,8 +139,7 @@ $(() => {
       //check for win
       winCheck()
 
-      console.log(firstRow)
-      console.log(firstCol)
+
 
 
       // will need function to check 3 in a row here
