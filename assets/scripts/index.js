@@ -34,12 +34,37 @@ $(() => {
 
   let diagBot = []
 
-  // check for wins
+  // reset
+
+  $('#reset').on('click', function () {
+      // reset arrays
+    bank = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+    firstRow = []
+    secondRow = []
+    thirdRow = []
+    firstCol = []
+    secondCol = []
+    thirdCol = []
+    diagTop = []
+    diagBot = []
+    $('.space').html('')
+    $('#winBox').html('')
+    console.log('game reset ')
+    console.log(bank)
+  })
 
 
+  // check for tie
 
+  const tieCheck = function () {
+    if (bank.length === 1) {
+      $('#winBox').html('TIE GAME')
+    } else {
+      console.log('in game')
+    }
+  }
 
-
+  // check for win
   const winCheck = function () {
     // local variables to reassign after evrery invocation
     const firstRowStr = firstRow.toString()
@@ -63,7 +88,7 @@ $(() => {
       console.log('x wins')
 
       bank = []
-        $('#winBox').html('X WINS')
+      $('#winBox').html('X WINS')
 
     } else if (firstRowStr === oWins || secondRowStr === oWins || thirdRowStr === oWins || firstColStr ===
       oWins || secondColStr === oWins || thirdColStr === oWins || diagTopStr === oWins || diagBotStr === oWins) {
@@ -75,55 +100,10 @@ $(() => {
       $('#winBox').html('O WINS')
     } else {
 
-     console.log('not yet')
+      tieCheck()
     }
   }
-  /*
-      if (firstRowStr === xWins) {
-        console.log('X condition met')
 
-      } else if (firstRowStr === oWins) {
-        console.log('O wins')
-
-      } else if (firstRowStr === xWins) {
-        console.log('x wins')
-
-      } else if (secondRowStr === xWins) {
-        console.log('X wins')
-
-      } else if (secondRowStr === oWins) {
-        console.log('o wins')
-
-      } else if (thirdRowStr === oWins) {
-        console.log('O wins')
-
-      } else if (firsColStr === oWins) {
-        console.log('O wins')
-
-      } else if (secondColStr === xWins) {
-        console.log('X wins')
-
-      } else if (thirdColStr === oWins) {
-        console.log('O wins')
-
-      } else if (diagTopStr === oWins) {
-        console.log('O wins')
-
-      } else if (diagBotStr === xWins) {
-        console.log('X wins')
-
-      } else if (firstRowStr === oWins) {
-        console.log('O wins')
-
-      }
-      }
-      } else {
-        console.log('not yet')
-      }
-
-    }
-
-    */
 
   // click handlers section for each square
   $('#B0').on('click', function () {

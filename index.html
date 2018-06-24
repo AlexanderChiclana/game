@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,14 +12,15 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Tic Tac Toe</h1>
+
+      <h1 class="neon" id="title">___________Tic_Tac_Toe___________</h1>
 
       <div id="container">
 
 
 
-      <div class="wrapper">
-        <div class="space" id="B0"></div>
+      <div class="flux" id="wrapper">
+        <div class="space" class="row" id="B0"></div>
         <div class="space" id="B1"></div>
         <div class="space" id="B2"></div>
         <div class="space" id="B3"></div>
@@ -32,8 +33,14 @@
       </div>
         </div>
 
-        <div id="winBox">
-
+        <!-- <div class "neon" id="winBox"> -->
         </div>
+
+        <div class="neon"id="reset">
+          RESET
+        </div>
+
+
+
     </body>
 </html>
