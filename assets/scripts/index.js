@@ -5,8 +5,12 @@
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+const authEvents = require('./auth/events.js')
 
 $(() => {
+
+  authEvents.addHandlers()
+
   // array sections
   let bank = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
 
@@ -313,7 +317,7 @@ $(() => {
 
 
 
-  //modal section
+  // modal section, WORK ON LAST ONE
 
   // Get the modal
 
@@ -348,5 +352,15 @@ $(() => {
       modal.style.display = "none";
     }
   }
+
+
+
+
+
+
+
+
+
+
 
 })

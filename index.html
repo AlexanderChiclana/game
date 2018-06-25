@@ -50,14 +50,14 @@
 
   <div id="menu">
     <!-- Trigger/Open The Modal -->
-    <div id="signIn" class="neon">Sign_In</div>
+    <div id="signIn" class="neon">Sign__In</div>
     <div id="reset" class="neon"> RESET</div>
-    <div id="signOut" class="neon">Log_Out</div>
+    <div id="signOut" class="neon">Log__Out</div>
 
   </div>
 
-  <div class= "neon" id="winBox">
-    </div>
+  <div class="neon" id="winBox">
+  </div>
 
 
   <!-- The Modal -->
@@ -79,7 +79,7 @@
           <input type="submit" value="Sign in!">
         </fieldset>
       </form>
-      <br>
+
       <br>
       <form id="sign-up" class="border">
 
@@ -98,22 +98,39 @@
         </fieldset>
 
       </form>
-
-
+      <br>
+      <form id="sign-out" class="border">
+        <fieldset>
+          <legend>Sign Out!</legend>
+          <input type="submit" value="Sign out!">
+        </fieldset>
+      </form>
+      <br>
+      <form id="change-password" class="border">
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <input type="submit" value="Change Password!">
+        </fieldset>
+      </form>
 
     </div>
   </div>
 
+
+  <!-- broken Modal content -->
+
   <div id="outState" class="modal">
 
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
 
-        win state here
+      win state here
 
-      </div>
     </div>
+  </div>
 
 
   <!-- Modal Section-->
