@@ -72,25 +72,26 @@ body{
 }
 
 #winBox{
+
   display: block;
   height: 100px;
   width: 600px;
-  background-color: white;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 30px;
-  font-size: 40pt;
+  font-size: 50pt;
   text-align: center;
   padding-top: 15px;
   border-radius: 10px;
-  font-family: neon;
+
+
 }
 
 #menu{
   text-align: center;
-  height: 100px;
+  height: 70px;
   width: 100%;
   display: inline-block;
+  margin-top: 20px;
 }
 
 
@@ -210,7 +211,7 @@ body{
 .neon {
   font-family: neon;
   color: #FB4264;
-  font-size: 35pt;
+  font-size: 30pt;
   // line-height: 9vw;
   text-shadow: 0 0 0vw #F40A35;
 }

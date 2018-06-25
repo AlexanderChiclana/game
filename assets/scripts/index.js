@@ -58,7 +58,7 @@ $(() => {
 
   const tieCheck = function () {
     if (bank.length === 1) {
-      $('#winBox').html('TIE GAME')
+      $('#winBox').html('TIE_GAME')
     } else {
       console.log('in game')
     }
@@ -311,20 +311,30 @@ $(() => {
   })
   //end of handlers
 
+
+
   //modal section
 
   // Get the modal
-  var modal = document.getElementById('myModal');
 
+
+  let modal = document.getElementById('myModal')
+
+  let outModal = document.getElementById('outState')
   // Get the button that opens the modal
-  var btn = document.getElementById("signIn");
+  let btn = document.getElementById("signIn");
 
+  let out = document.getElementById("signOut")
   // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
+  let span = document.getElementsByClassName("close")[0];
 
   // When the user clicks on the button, open the modal
   btn.onclick = function () {
     modal.style.display = "block";
+  }
+
+  out.onclick = function () {
+    outModal.style.display = "block";
   }
 
   // When the user clicks on <span> (x), close the modal
