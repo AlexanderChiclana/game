@@ -17,22 +17,6 @@
 
 <body>
 
-  <!-- Modal Section-->
-
-  <!-- Trigger/Open The Modal -->
-  <button id="myBtn">Sign In</button>
-
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis quod consequuntur autem quam neque, nostrum, sunt aut animi, inventore consequatur laboriosam officia vitae aperiam eveniet incidunt totam quos ullam? </p>    </div>
-
-  </div>
-  <!-- Modal Section-->
-
   <h1 class="neon" id="title">___________Tic_Tac_Toe___________</h1>
 
   <div id="container">
@@ -56,17 +40,77 @@
   <!-- <div class "neon" id="winBox"> -->
   </div>
 
-  <div class="neon" id="reset">
-    RESET
+
+
+
+
+
+
+  <!-- modal -->
+
+
+  <div id="menu">
+    <!-- Trigger/Open The Modal -->
+    <div id="signIn" class="neon">Sign_In</div>
+    <div id="reset" class="neon"> RESET</div>
+    <div id="signOut" class="neon">Log_Out</div>
+
   </div>
 
-  <div class="neon" id="xScores">
+
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <form id="sign-in" class="border">
+
+        <fieldset>
+          <legend>_Log_in_</legend>
+
+          <input type="text" name="credentials[email]" placeholder="Email">
+
+          <input type="password" name="credentials[password]" placeholder="Password">
+
+          <input type="submit" value="Sign in!">
+        </fieldset>
+      </form>
+      <br>
+      <br>
+      <form id="sign-up" class="border">
+
+        <fieldset>
+
+          <legend>_Sign_up_</legend>
+
+          <input type="text" name="credentials[email]" placeholder="Email">
+
+          <input type="password" name="credentials[password]" placeholder="Password">
+
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+
+          <input type="submit" value="Sign up!">
+
+        </fieldset>
+
+      </form>
+
+
+
+    </div>
+  </div>
+  <!-- Modal Section-->
+
+  <!-- <div class="neon" id="xScores">
     X_has_One
   </div>
 
   <div class="neon" id="oScores">
     O_Score
-  </div>
+  </div> -->
 
 
 </body>
