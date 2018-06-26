@@ -122,6 +122,7 @@ body{
   height: 80px;
   width: 300px;
   float: right;
+  visibility: hidden;
 }
 
 
@@ -296,24 +297,24 @@ body{
 .modal-content {
   background-color: black;
   border-color: rgba(35, 194, 230, 0.747);
-  margin: 8% auto; /* 15% from the top and centered */
+  margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border-style: solid;
   border-width: 5px;
   width: 65%; /* Could be more or less, depending on screen size */
-  height: 600px;
+  height: 350px;
   border-radius: 10px;
 }
 
 .out-modal-content {
   background-color: black;
   border-color: rgba(35, 194, 230, 0.747);
-  margin: 8% auto; /* 15% from the top and centered */
+  margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border-style: solid;
   border-width: 5px;
   width: 65%; /* Could be more or less, depending on screen size */
-  height: 600px;
+  height: 350px;
   border-radius: 10px;
 }
 /* The Close Button */
@@ -336,6 +337,13 @@ legend{
   font-family: neon;
   color: rgba(35, 194, 230, 0.747);
   font-size: 30pt;
+}
+
+#info{
+  float: right;
+  height: 20px;
+  width: 50px;
+  color: white;
 }
 
 fieldset{

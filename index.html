@@ -60,7 +60,7 @@
   </div>
 
 
-  <!-- The Modal -->
+  <!-- The Login Modal -->
   <div id="myModal" class="modal">
 
     <!-- Modal content -->
@@ -68,18 +68,19 @@
       <span class="close">&times;</span>
 
       <form id="sign-in" class="border">
+        <div id="info">Password Incorrect</div>
 
         <fieldset>
           <legend>_Log_in_</legend>
-
           <input type="text" name="credentials[email]" placeholder="Email">
 
           <input type="password" name="credentials[password]" placeholder="Password">
 
           <input type="submit" value="Sign in!">
+
         </fieldset>
       </form>
-
+      <br>
       <br>
       <form id="sign-up" class="border">
 
@@ -99,27 +100,13 @@
 
       </form>
       <br>
-      <form id="sign-out" class="border">
-        <fieldset>
-          <legend>Sign Out!</legend>
-          <input type="submit" value="Sign out!">
-        </fieldset>
-      </form>
-      <br>
-      <form id="change-password" class="border">
-        <fieldset>
-          <legend>Change Password!</legend>
-          <input type="password" name="passwords[old]" placeholder="Old Password">
-          <input type="password" name="passwords[new]" placeholder="New Password">
-          <input type="submit" value="Change Password!">
-        </fieldset>
-      </form>
+
 
     </div>
   </div>
 
 
-  <!-- fixed Modal content -->
+  <!-- Out Modal content -->
 
   <div id="outState" class="outModal">
 
@@ -127,8 +114,22 @@
     <div class="out-modal-content">
       <span class="close">&times;</span>
 
-      Log Out?
-      Change Password
+      <form id="sign-out" class="border">
+          <fieldset>
+            <legend>Sign__Out!</legend>
+            <input type="submit" value="Sign out!">
+          </fieldset>
+        </form>
+        <br>
+        <br>
+        <form id="change-password" class="border">
+          <fieldset>
+            <legend>Change__Password!</legend>
+            <input type="password" name="passwords[old]" placeholder="Old Password">
+            <input type="password" name="passwords[new]" placeholder="New Password">
+            <input type="submit" value="Change Password!">
+          </fieldset>
+        </form>
 
     </div>
   </div>

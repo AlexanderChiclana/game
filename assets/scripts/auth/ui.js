@@ -15,21 +15,27 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
+
   $('#message').text('Signed in successfully')
   $('#myModal').css('display', 'none')
+  $('#reset').trigger('click')
+  $('#signIn').css('visibility','hidden')
+  $('#signOut').css('visibility','visible')
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
 
 const signInFailure = function (error) {
   $('#message').text('Error on sign in')
-  $('#message').css('background-color', 'red')
+  $('.modal-content').css('border-color', 'red')
   console.error('signInFailure ran. Error is :', error)
 }
 
 const signOutSuccess = function () {
   $('#message').text('Signed out successfully')
-  $('#message').css('background-color', 'green')
+  $('#outState').css('display', 'none')
+  $('#signIn').css('visibility','visible')
+  $('#signOut').css('visibility','hidden')
   console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
