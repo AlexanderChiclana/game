@@ -5,6 +5,29 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 
+// game info section
+
+const onNewGame = function (event) {
+  event.preventDefault()
+  console.log('new game created')
+
+  api.newGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+
+const onSend = function (event) {
+
+  event.preventDefault()
+  console.log('new game created')
+
+  api.sendGame()
+    .then(console.log('sucess'))
+    .catch(console.log('fail'))
+}
+
+
+
 const onSignUp = function (event) {
   event.preventDefault()
   console.log('sign up ran!')
@@ -49,8 +72,11 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#newGame').on('click', onNewGame)
+  $('#sendGame').on('click', onSend)
 }
 
 module.exports = {
   addHandlers
+  // onReset
 }

@@ -7,12 +7,18 @@
 // require('./example')
 const authEvents = require('./auth/events.js')
 
+let cells = [null, null, null, null, null, null, null, null, null]
+
 $(() => {
+
 
   authEvents.addHandlers()
 
+
+
   // array sections
   let bank = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+
 
   // horizontal arrays
 
@@ -38,6 +44,25 @@ $(() => {
 
   let diagBot = []
 
+  // all of the boards moves for API
+
+
+
+  let moveCalc = function () {
+
+    cells[0] = firstRow[0]
+    cells[1] = firstRow[1]
+    cells[2] = firstRow[2]
+    cells[3] = secondRow[0]
+    cells[4] = secondRow[1]
+    cells[5] = secondRow[2]
+    cells[6] = thirdRow[0]
+    cells[7] = thirdRow[1]
+    cells[8] = thirdRow[2]
+
+  }
+
+
   // reset
 
   $('#reset').on('click', function () {
@@ -53,8 +78,10 @@ $(() => {
     diagBot = []
     $('.space').html('')
     $('#winBox').html('')
+    cells = []
     console.log('game reset ')
     console.log(bank)
+
   })
 
 
@@ -122,16 +149,15 @@ $(() => {
       firstCol[0] = bank[0]
       diagTop[0] = bank[0]
 
+      // puts in array tracking all moves for API
+      moveCalc()
+      console.log(cells)
       //check for win
       winCheck()
 
 
-
-
       // will need function to check 3 in a row here
       // rowCheck()
-
-
 
       console.log('sq 0 clicked')
       console.log(bank)
@@ -151,6 +177,9 @@ $(() => {
       $('#B1').html(bank[0])
       firstRow[1] = bank[0]
       secondCol[0] = bank[0]
+
+      moveCalc()
+      console.log(cells)
 
       winCheck()
 
@@ -174,6 +203,8 @@ $(() => {
       thirdCol[0] = bank[0]
       diagBot[2] = bank[0]
 
+      moveCalc()
+      console.log(cells)
 
       winCheck()
 
@@ -195,6 +226,8 @@ $(() => {
       secondRow[0] = bank[0]
       firstCol[1] = bank[0]
 
+      moveCalc()
+      console.log(cells)
 
       winCheck()
 
@@ -218,6 +251,9 @@ $(() => {
       diagBot[1] = bank[0]
       diagTop[1] = bank[0]
 
+      moveCalc()
+      console.log(cells)
+
       winCheck()
 
       bank.shift()
@@ -238,6 +274,8 @@ $(() => {
       secondRow[2] = bank[0]
       thirdCol[1] = bank[0]
 
+      moveCalc()
+      console.log(cells)
 
       winCheck()
 
@@ -259,6 +297,8 @@ $(() => {
       firstCol[2] = bank[0]
       diagBot[0] = bank[0]
 
+      moveCalc()
+      console.log(cells)
 
       winCheck()
 
@@ -281,6 +321,8 @@ $(() => {
       thirdRow[1] = bank[0]
       secondCol[2] = bank[0]
 
+      moveCalc()
+      console.log(cells)
 
       winCheck()
 
@@ -303,6 +345,9 @@ $(() => {
       thirdRow[2] = bank[0]
       thirdCol[2] = bank[0]
       diagTop[2] = bank[0]
+
+      moveCalc()
+      console.log(cells)
 
       winCheck()
 
@@ -369,3 +414,7 @@ $(() => {
 
 
 })
+
+module.exports = {
+
+}
