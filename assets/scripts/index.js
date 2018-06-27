@@ -45,11 +45,14 @@ let diagTop = []
 let diagBot = []
 const tieCheck = function () {
   if (bank.length === 0) {
-    $('#winBox').html('TIE_GAME')
+    $('#winBox').html('_____________TIE_GAME_____________')
+    gameOver()
+      .then(ui.doneSuccess)
+      .catch(ui.doneFailure)
     $('#newGame').click()
 
   } else {
-    console.log('in game')
+
   }
 }
 
@@ -76,7 +79,10 @@ const winCheck = function () {
 
 
     bank = []
-    $('#winBox').html('X WINS')
+    $('#winBox').html('______________X_WINS______________')
+    gameOver()
+      .then(ui.doneSuccess)
+      .catch(ui.doneFailure)
     $('#newGame').click()
 
   } else if (firstRowStr === oWins || secondRowStr === oWins || thirdRowStr === oWins || firstColStr ===
@@ -85,8 +91,11 @@ const winCheck = function () {
 
 
     bank = []
-    $('#winBox').html('O WINS')
+    $('#winBox').html('______________O_WINS______________')
     $('#newGame').click()
+    gameOver()
+      .then(ui.doneSuccess)
+      .catch(ui.doneFailure)
 
   } else {
 
@@ -105,8 +114,24 @@ const sendGame = function (index, value) {
         "cell": {
           "index": `${index}`,
           "value": `${value}`
-        },
-        "over": false
+        }s
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const gameOver = function (index, value) {
+  // bank.shift()
+  // winCheck()
+  return $.ajax({
+    url: config.apiUrl + 'games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      "game": {
+        "over": true
       }
     },
     headers: {
@@ -230,7 +255,7 @@ $(() => {
       // console.log(cells)
 
       sendGame(2, bank[0])
-      .then(ui.moveSuccess)
+        .then(ui.moveSuccess)
         .catch(ui.moveFailure)
       // winCheck()
 
@@ -255,7 +280,7 @@ $(() => {
       // console.log(cells)
 
       sendGame(3, bank[0])
-      .then(ui.moveSuccess)
+        .then(ui.moveSuccess)
         .catch(ui.moveFailure)
       // winCheck()
 
@@ -282,7 +307,7 @@ $(() => {
       // console.log(cells)
 
       sendGame(4, bank[0])
-      .then(ui.moveSuccess)
+        .then(ui.moveSuccess)
         .catch(ui.moveFailure)
       // winCheck()
 
@@ -307,7 +332,7 @@ $(() => {
       // console.log(cells)
 
       sendGame(5, bank[0])
-      .then(ui.moveSuccess)
+        .then(ui.moveSuccess)
         .catch(ui.moveFailure)
       // winCheck()
 
@@ -332,7 +357,7 @@ $(() => {
       // console.log(cells)
 
       sendGame(6, bank[0])
-      .then(ui.moveSuccess)
+        .then(ui.moveSuccess)
         .catch(ui.moveFailure)
       // winCheck()
 
@@ -358,7 +383,7 @@ $(() => {
       // console.log(cells)
 
       sendGame(7, bank[0])
-      .then(ui.moveSuccess)
+        .then(ui.moveSuccess)
         .catch(ui.moveFailure)
       // winCheck()
 
@@ -385,7 +410,7 @@ $(() => {
       // console.log(cells)
 
       sendGame(8, bank[0])
-      .then(ui.moveSuccess)
+        .then(ui.moveSuccess)
         .catch(ui.moveFailure)
       // winCheck()
 

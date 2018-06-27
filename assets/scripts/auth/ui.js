@@ -15,8 +15,6 @@ const newGameSuccess = function (data) {
   $('.modal-content').css('border-color', 'green')
   console.log('newGameSuccess ran. Data is :', data)
   store.game = data.game
-
-  console.log('here is the store ', store)
 }
 
 const newGameFailure = function (error) {
@@ -58,16 +56,25 @@ const signInFailure = function (error) {
 }
 
 // for moves
-const moveSuccess = function () {
+const moveSuccess = function (data) {
 
 
-  console.log('moveSuccess ran and nothing was returned!')
+  console.log('moveSuccess ran and heres the data: ', data)
 }
 
 const moveFailure = function (error) {
   $('#message').text('Error on sign out')
   $('#message').css('background-color', 'red')
   console.error('moveFailure ran. Error is :', error)
+
+}
+
+const doneSuccess = function (data) {
+  console.log('doneSuccess ran. Data is :', data)
+}
+
+const doneFailure = function (error) {
+  console.error('doneFailure ran. Error is :', error)
 }
 //
 
@@ -112,5 +119,7 @@ module.exports = {
   sendSuccess,
   sendFailure,
   moveSuccess,
-  moveFailure
+  moveFailure,
+  doneSuccess,
+  doneFailure
 }
