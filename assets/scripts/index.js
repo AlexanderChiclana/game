@@ -11,9 +11,9 @@ const store = require('./store')
 
 
 // array sections
-let bank = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+let bank = ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x']
 
-let cells = ['', '', '', '', '', '', '', '', '']
+// let cells = ['', '', '', '', '', '', '', '', '']
 
 // let currentIndex = null
 
@@ -42,9 +42,63 @@ let thirdCol = []
 let diagTop = []
 
 let diagBot = []
+const tieCheck = function () {
+  if (bank.length === 1) {
+    $('#winBox').html('TIE_GAME')
+    $('#newGame').click()
+
+  } else {
+    console.log('in game')
+  }
+}
+
+// check for win
+const winCheck = function () {
+  // local variables to reassign after evrery invocation
+  const firstRowStr = firstRow.toString()
+  const secondRowStr = secondRow.toString()
+  const thirdRowStr = thirdRow.toString()
+
+  const firstColStr = firstCol.toString()
+  const secondColStr = secondCol.toString()
+  const thirdColStr = thirdCol.toString()
+
+  const diagTopStr = diagTop.toString()
+  const diagBotStr = diagBot.toString()
+
+  const xWins = 'x,x,x'
+  const oWins = 'o,o,o'
+
+  // shorter logic attempt, checking if won condition met
+  if (firstRowStr === xWins || secondRowStr === xWins || thirdRowStr === xWins || firstColStr === xWins ||
+    secondColStr === xWins || thirdColStr === xWins || diagTopStr === xWins || diagBotStr === xWins) {
+
+    console.log('x wins')
+
+    bank = []
+    $('#winBox').html('X WINS')
+    $('#newGame').click()
+
+  } else if (firstRowStr === oWins || secondRowStr === oWins || thirdRowStr === oWins || firstColStr ===
+    oWins || secondColStr === oWins || thirdColStr === oWins || diagTopStr === oWins || diagBotStr === oWins) {
+
+    console.log('O wins')
+
+
+    bank = []
+    $('#winBox').html('O WINS')
+    $('#newGame').click()
+
+  } else {
+
+    tieCheck()
+  }
+}
 
 const sendGame = function (index, value) {
   console.log('sending')
+  bank.shift()
+  winCheck()
   return $.ajax({
     url: config.apiUrl + 'games/' + store.game.id,
     method: 'PATCH',
@@ -76,26 +130,26 @@ $(() => {
 
 
 
-  let moveCalc = function () {
+  // let moveCalc = function () {
 
-    cells[0] = firstRow[0]
-    cells[1] = firstRow[1]
-    cells[2] = firstRow[2]
-    cells[3] = secondRow[0]
-    cells[4] = secondRow[1]
-    cells[5] = secondRow[2]
-    cells[6] = thirdRow[0]
-    cells[7] = thirdRow[1]
-    cells[8] = thirdRow[2]
+  //   cells[0] = firstRow[0]
+  //   cells[1] = firstRow[1]
+  //   cells[2] = firstRow[2]
+  //   cells[3] = secondRow[0]
+  //   cells[4] = secondRow[1]
+  //   cells[5] = secondRow[2]
+  //   cells[6] = thirdRow[0]
+  //   cells[7] = thirdRow[1]
+  //   cells[8] = thirdRow[2]
 
-  }
+  // }
 
 
 
   $('#reset').on('click', function () {
     // reset arrays
 
-    bank = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+    bank = ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x']
     firstRow = []
     secondRow = []
     thirdRow = []
@@ -106,7 +160,7 @@ $(() => {
     diagBot = []
     $('.space').html('')
     $('#winBox').html('')
-    cells = []
+    // cells = []
     console.log('game reset ')
     console.log(bank)
   })
@@ -114,58 +168,6 @@ $(() => {
 
   // check for tie
 
-  const tieCheck = function () {
-    if (bank.length === 1) {
-      $('#winBox').html('TIE_GAME')
-      $('#newGame').click()
-
-    } else {
-      console.log('in game')
-    }
-  }
-
-  // check for win
-  const winCheck = function () {
-    // local variables to reassign after evrery invocation
-    const firstRowStr = firstRow.toString()
-    const secondRowStr = secondRow.toString()
-    const thirdRowStr = thirdRow.toString()
-
-    const firstColStr = firstCol.toString()
-    const secondColStr = secondCol.toString()
-    const thirdColStr = thirdCol.toString()
-
-    const diagTopStr = diagTop.toString()
-    const diagBotStr = diagBot.toString()
-
-    const xWins = 'X,X,X'
-    const oWins = 'O,O,O'
-
-    // shorter logic attempt, checking if won condition met
-    if (firstRowStr === xWins || secondRowStr === xWins || thirdRowStr === xWins || firstColStr === xWins ||
-      secondColStr === xWins || thirdColStr === xWins || diagTopStr === xWins || diagBotStr === xWins) {
-
-      console.log('x wins')
-
-      bank = []
-      $('#winBox').html('X WINS')
-      $('#newGame').click()
-
-    } else if (firstRowStr === oWins || secondRowStr === oWins || thirdRowStr === oWins || firstColStr ===
-      oWins || secondColStr === oWins || thirdColStr === oWins || diagTopStr === oWins || diagBotStr === oWins) {
-
-      console.log('O wins')
-
-
-      bank = []
-      $('#winBox').html('O WINS')
-      $('#newGame').click()
-
-    } else {
-
-      tieCheck()
-    }
-  }
 
 
   // click handlers section for each square
@@ -182,7 +184,7 @@ $(() => {
       diagTop[0] = bank[0]
 
       // puts in array tracking all moves for API
-      moveCalc()
+      // moveCalc()
       //check for win
 
 
@@ -194,8 +196,8 @@ $(() => {
 
       // code for invalid
       sendGame(0, bank[0])
-      winCheck()
-      bank.shift()
+      // winCheck()
+      // bank.shift()
     } else {
       console.log('full')
     }
@@ -211,13 +213,13 @@ $(() => {
       firstRow[1] = bank[0]
       secondCol[0] = bank[0]
 
-      moveCalc()
-      console.log(cells)
+      // moveCalc()
+      // console.log(cells)
 
       sendGame(1, bank[0])
-      winCheck()
+      // winCheck()
 
-      bank.shift()
+      // bank.shift()
       console.log('sq 1 clicked')
       console.log(bank)
 
@@ -237,13 +239,13 @@ $(() => {
       thirdCol[0] = bank[0]
       diagBot[2] = bank[0]
 
-      moveCalc()
-      console.log(cells)
+      // moveCalc()
+      // console.log(cells)
 
       sendGame(2, bank[0])
-      winCheck()
+      // winCheck()
 
-      bank.shift()
+      // bank.shift()
       console.log('sq 2 clicked')
 
     } else {
@@ -261,13 +263,13 @@ $(() => {
       secondRow[0] = bank[0]
       firstCol[1] = bank[0]
 
-      moveCalc()
-      console.log(cells)
+      // moveCalc()
+      // console.log(cells)
 
       sendGame(3, bank[0])
-      winCheck()
+      // winCheck()
 
-      bank.shift()
+      // bank.shift()
       console.log('sq 3 clicked')
 
     } else {
@@ -287,13 +289,13 @@ $(() => {
       diagBot[1] = bank[0]
       diagTop[1] = bank[0]
 
-      moveCalc()
-      console.log(cells)
+      // moveCalc()
+      // console.log(cells)
 
       sendGame(4, bank[0])
-      winCheck()
+      // winCheck()
 
-      bank.shift()
+      // bank.shift()
       console.log('sq 4 clicked')
 
     } else {
@@ -311,13 +313,13 @@ $(() => {
       secondRow[2] = bank[0]
       thirdCol[1] = bank[0]
 
-      moveCalc()
-      console.log(cells)
+      // moveCalc()
+      // console.log(cells)
 
       sendGame(5, bank[0])
-      winCheck()
+      // winCheck()
 
-      bank.shift()
+      // bank.shift()
       console.log('sq 5 clicked')
 
     } else {
@@ -335,13 +337,13 @@ $(() => {
       firstCol[2] = bank[0]
       diagBot[0] = bank[0]
 
-      moveCalc()
-      console.log(cells)
+      // moveCalc()
+      // console.log(cells)
 
       sendGame(6, bank[0])
-      winCheck()
+      // winCheck()
 
-      bank.shift()
+      // bank.shift()
       console.log('sq 6 clicked')
 
 
@@ -360,13 +362,13 @@ $(() => {
       thirdRow[1] = bank[0]
       secondCol[2] = bank[0]
 
-      moveCalc()
-      console.log(cells)
+      // moveCalc()
+      // console.log(cells)
 
       sendGame(7, bank[0])
-      winCheck()
+      // winCheck()
 
-      bank.shift()
+      // bank.shift()
       console.log('sq 7 clicked')
 
     } else {
@@ -386,13 +388,13 @@ $(() => {
       thirdCol[2] = bank[0]
       diagTop[2] = bank[0]
 
-      moveCalc()
-      console.log(cells)
+      // moveCalc()
+      // console.log(cells)
 
       sendGame(8, bank[0])
-      winCheck()
+      // winCheck()
 
-      bank.shift()
+      // bank.shift()
       console.log('sq 8 clicked')
 
     } else {
