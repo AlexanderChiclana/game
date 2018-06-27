@@ -22,8 +22,8 @@ const onSend = function (event) {
   console.log('new game created')
 
   api.sendGame()
-    .then(console.log('sucess'))
-    .catch(console.log('fail'))
+    .then(ui.sendSuccess)
+    .catch(ui.sendFailure)
 }
 
 

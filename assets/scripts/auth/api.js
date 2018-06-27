@@ -13,13 +13,14 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
-  console.log(store)
+
   return $.ajax({
     url: config.apiUrl + 'sign-in',
     method: 'POST',
     data
     // data: data
   })
+
 }
 
 // game

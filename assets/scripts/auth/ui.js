@@ -2,10 +2,21 @@
 
 const store = require('../store')
 
+const sendSuccess = function (data) {
+  console.log('sendSuccess ran. Data is :', data)
+}
+
+const sendFailure = function (error) {
+  console.error('sendFailure ran. Error is :', error)
+}
+
 const newGameSuccess = function (data) {
   $('#message').text('Signed up successfully')
   $('.modal-content').css('border-color', 'green')
   console.log('newGameSuccess ran. Data is :', data)
+  store.game = data.game
+
+  console.log('here is the store ', store)
 }
 
 const newGameFailure = function (error) {
@@ -35,6 +46,8 @@ const signInSuccess = function (data) {
   $('#signOut').css('visibility','visible')
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
+  console.log('here is the store ', store)
+
 }
 
 const signInFailure = function (error) {
@@ -80,5 +93,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   newGameSuccess,
-  newGameFailure
+  newGameFailure,
+  sendSuccess,
+  sendFailure
 }
