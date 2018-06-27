@@ -6,8 +6,62 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 const authEvents = require('./auth/events.js')
+const config = require('./config')
+const store = require('./store')
 
-let cells = [null, null, null, null, null, null, null, null, null]
+
+// array sections
+let bank = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+
+let cells = ['', '', '', '', '', '', '', '', '']
+
+// let currentIndex = null
+
+// let currentValue = null
+
+// horizontal arrays
+
+let firstRow = []
+
+let secondRow = []
+
+let thirdRow = []
+
+
+// vertical arrays
+
+let firstCol = []
+
+let secondCol = []
+
+let thirdCol = []
+
+
+// diagonal arrays
+
+let diagTop = []
+
+let diagBot = []
+
+const sendGame = function (index, value) {
+  console.log('sending')
+  return $.ajax({
+    url: config.apiUrl + 'games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      "game": {
+        "cell": {
+          "index": `${index}`,
+          "value": `${value}`
+        },
+        "over": false
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 $(() => {
 
@@ -16,33 +70,7 @@ $(() => {
 
 
 
-  // array sections
-  let bank = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
 
-
-  // horizontal arrays
-
-  let firstRow = []
-
-  let secondRow = []
-
-  let thirdRow = []
-
-
-  // vertical arrays
-
-  let firstCol = []
-
-  let secondCol = []
-
-  let thirdCol = []
-
-
-  // diagonal arrays
-
-  let diagTop = []
-
-  let diagBot = []
 
   // all of the boards moves for API
 
@@ -63,10 +91,10 @@ $(() => {
   }
 
 
-  // reset
 
   $('#reset').on('click', function () {
     // reset arrays
+
     bank = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
     firstRow = []
     secondRow = []
@@ -81,7 +109,6 @@ $(() => {
     cells = []
     console.log('game reset ')
     console.log(bank)
-
   })
 
 
@@ -90,6 +117,8 @@ $(() => {
   const tieCheck = function () {
     if (bank.length === 1) {
       $('#winBox').html('TIE_GAME')
+      $('#newGame').click()
+
     } else {
       console.log('in game')
     }
@@ -120,6 +149,7 @@ $(() => {
 
       bank = []
       $('#winBox').html('X WINS')
+      $('#newGame').click()
 
     } else if (firstRowStr === oWins || secondRowStr === oWins || thirdRowStr === oWins || firstColStr ===
       oWins || secondColStr === oWins || thirdColStr === oWins || diagTopStr === oWins || diagBotStr === oWins) {
@@ -129,6 +159,8 @@ $(() => {
 
       bank = []
       $('#winBox').html('O WINS')
+      $('#newGame').click()
+
     } else {
 
       tieCheck()
@@ -151,18 +183,19 @@ $(() => {
 
       // puts in array tracking all moves for API
       moveCalc()
-      console.log(cells)
       //check for win
-      winCheck()
+
 
 
       // will need function to check 3 in a row here
       // rowCheck()
 
-      console.log('sq 0 clicked')
-      console.log(bank)
-      bank.shift()
+
+
       // code for invalid
+      sendGame(0, bank[0])
+      winCheck()
+      bank.shift()
     } else {
       console.log('full')
     }
@@ -181,6 +214,7 @@ $(() => {
       moveCalc()
       console.log(cells)
 
+      sendGame(1, bank[0])
       winCheck()
 
       bank.shift()
@@ -206,6 +240,7 @@ $(() => {
       moveCalc()
       console.log(cells)
 
+      sendGame(2, bank[0])
       winCheck()
 
       bank.shift()
@@ -229,6 +264,7 @@ $(() => {
       moveCalc()
       console.log(cells)
 
+      sendGame(3, bank[0])
       winCheck()
 
       bank.shift()
@@ -254,6 +290,7 @@ $(() => {
       moveCalc()
       console.log(cells)
 
+      sendGame(4, bank[0])
       winCheck()
 
       bank.shift()
@@ -277,6 +314,7 @@ $(() => {
       moveCalc()
       console.log(cells)
 
+      sendGame(5, bank[0])
       winCheck()
 
       bank.shift()
@@ -300,6 +338,7 @@ $(() => {
       moveCalc()
       console.log(cells)
 
+      sendGame(6, bank[0])
       winCheck()
 
       bank.shift()
@@ -324,6 +363,7 @@ $(() => {
       moveCalc()
       console.log(cells)
 
+      sendGame(7, bank[0])
       winCheck()
 
       bank.shift()
@@ -349,6 +389,7 @@ $(() => {
       moveCalc()
       console.log(cells)
 
+      sendGame(8, bank[0])
       winCheck()
 
       bank.shift()
@@ -411,10 +452,5 @@ $(() => {
 
 
 
-
-
 })
 
-module.exports = {
-
-}

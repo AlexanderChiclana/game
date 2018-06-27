@@ -24,6 +24,7 @@ const signIn = function (data) {
 }
 
 // game
+
 const newGame = function () {
   console.log(store)
   return $.ajax({
@@ -36,31 +37,25 @@ const newGame = function () {
   })
 }
 
-const sendGame = function () {
-
-
-  console.log('made it this far')
-  console.log('ok')
-
-  console.log(store)
-  return $.ajax({
-    url: config.apiUrl + 'games/' + store.game.id,
-    method: 'PATCH',
-    data: {
-      "game": {
-        "cell": {
-          "index": 0,
-          "value": "x"
-        },
-        "over": false
-      }
-    },
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-  console.log(store)
-}
+// const sendGame = function (index, value) {
+//   console.log('working')
+//   return $.ajax({
+//     url: config.apiUrl + 'games/' + store.game.id,
+//     method: 'PATCH',
+//     data: {
+//       "game": {
+//         "cell": {
+//           "index": `${index}`,
+//           "value": `${value}`
+//         },
+//         "over": false
+//       }
+//     },
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
 
 
 //

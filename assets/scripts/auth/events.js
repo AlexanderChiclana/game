@@ -5,26 +5,38 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 
+// const indexJs = require('../index')
+
+// const index = require('../index')
+
+
 // game info section
 
+// creates a new board after reset and login
 const onNewGame = function (event) {
   event.preventDefault()
-  console.log('new game created')
 
+  console.log('new game created')
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
 }
 
-const onSend = function (event) {
+// for sending moves
+// const onSend = function (event) {
 
-  event.preventDefault()
-  console.log('new game created')
+//   event.preventDefault()
+//   console.log(indexJs.currentValue)
+//   console.log(indexJs.currentIndex)
+//   console.log('new game created')
 
-  api.sendGame()
-    .then(ui.sendSuccess)
-    .catch(ui.sendFailure)
-}
+
+
+//   api.sendGame(index, value)
+//     .then(ui.sendSuccess)
+//     .catch(ui.sendFailure)
+// }
+
 
 
 
@@ -73,10 +85,12 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#newGame').on('click', onNewGame)
-  $('#sendGame').on('click', onSend)
+  // $('#sendGame').on('click', onSend)
+  // $('#reset').on('click', index.visualReset)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onNewGame
   // onReset
 }

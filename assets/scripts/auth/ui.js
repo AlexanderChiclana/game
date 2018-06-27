@@ -46,6 +46,7 @@ const signInSuccess = function (data) {
   $('#signOut').css('visibility','visible')
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
+  $('#newGame').click()
   console.log('here is the store ', store)
 
 }
