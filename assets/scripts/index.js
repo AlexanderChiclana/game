@@ -8,6 +8,7 @@
 const authEvents = require('./auth/events.js')
 const config = require('./config')
 const store = require('./store')
+const ui = require('./auth/ui.js')
 
 
 // array sections
@@ -43,7 +44,7 @@ let diagTop = []
 
 let diagBot = []
 const tieCheck = function () {
-  if (bank.length === 1) {
+  if (bank.length === 0) {
     $('#winBox').html('TIE_GAME')
     $('#newGame').click()
 
@@ -73,7 +74,6 @@ const winCheck = function () {
   if (firstRowStr === xWins || secondRowStr === xWins || thirdRowStr === xWins || firstColStr === xWins ||
     secondColStr === xWins || thirdColStr === xWins || diagTopStr === xWins || diagBotStr === xWins) {
 
-    console.log('x wins')
 
     bank = []
     $('#winBox').html('X WINS')
@@ -82,7 +82,6 @@ const winCheck = function () {
   } else if (firstRowStr === oWins || secondRowStr === oWins || thirdRowStr === oWins || firstColStr ===
     oWins || secondColStr === oWins || thirdColStr === oWins || diagTopStr === oWins || diagBotStr === oWins) {
 
-    console.log('O wins')
 
 
     bank = []
@@ -96,7 +95,6 @@ const winCheck = function () {
 }
 
 const sendGame = function (index, value) {
-  console.log('sending')
   bank.shift()
   winCheck()
   return $.ajax({
@@ -161,8 +159,7 @@ $(() => {
     $('.space').html('')
     $('#winBox').html('')
     // cells = []
-    console.log('game reset ')
-    console.log(bank)
+
   })
 
 
@@ -183,19 +180,12 @@ $(() => {
       firstCol[0] = bank[0]
       diagTop[0] = bank[0]
 
-      // puts in array tracking all moves for API
-      // moveCalc()
-      //check for win
 
 
-
-      // will need function to check 3 in a row here
-      // rowCheck()
-
-
-
-      // code for invalid
+      // code for API
       sendGame(0, bank[0])
+        .then(ui.moveSuccess)
+        .catch(ui.moveFailure)
       // winCheck()
       // bank.shift()
     } else {
@@ -219,9 +209,6 @@ $(() => {
       sendGame(1, bank[0])
       // winCheck()
 
-      // bank.shift()
-      console.log('sq 1 clicked')
-      console.log(bank)
 
     } else {
       console.log('full')
@@ -243,10 +230,11 @@ $(() => {
       // console.log(cells)
 
       sendGame(2, bank[0])
+      .then(ui.moveSuccess)
+        .catch(ui.moveFailure)
       // winCheck()
 
       // bank.shift()
-      console.log('sq 2 clicked')
 
     } else {
       console.log('full')
@@ -267,10 +255,11 @@ $(() => {
       // console.log(cells)
 
       sendGame(3, bank[0])
+      .then(ui.moveSuccess)
+        .catch(ui.moveFailure)
       // winCheck()
 
       // bank.shift()
-      console.log('sq 3 clicked')
 
     } else {
       console.log('full')
@@ -293,10 +282,11 @@ $(() => {
       // console.log(cells)
 
       sendGame(4, bank[0])
+      .then(ui.moveSuccess)
+        .catch(ui.moveFailure)
       // winCheck()
 
       // bank.shift()
-      console.log('sq 4 clicked')
 
     } else {
       console.log('full')
@@ -317,10 +307,11 @@ $(() => {
       // console.log(cells)
 
       sendGame(5, bank[0])
+      .then(ui.moveSuccess)
+        .catch(ui.moveFailure)
       // winCheck()
 
       // bank.shift()
-      console.log('sq 5 clicked')
 
     } else {
       console.log('full')
@@ -341,10 +332,11 @@ $(() => {
       // console.log(cells)
 
       sendGame(6, bank[0])
+      .then(ui.moveSuccess)
+        .catch(ui.moveFailure)
       // winCheck()
 
       // bank.shift()
-      console.log('sq 6 clicked')
 
 
     } else {
@@ -366,10 +358,11 @@ $(() => {
       // console.log(cells)
 
       sendGame(7, bank[0])
+      .then(ui.moveSuccess)
+        .catch(ui.moveFailure)
       // winCheck()
 
       // bank.shift()
-      console.log('sq 7 clicked')
 
     } else {
       console.log('full')
@@ -392,10 +385,11 @@ $(() => {
       // console.log(cells)
 
       sendGame(8, bank[0])
+      .then(ui.moveSuccess)
+        .catch(ui.moveFailure)
       // winCheck()
 
       // bank.shift()
-      console.log('sq 8 clicked')
 
     } else {
       console.log('full')

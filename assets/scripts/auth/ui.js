@@ -57,6 +57,20 @@ const signInFailure = function (error) {
   console.error('signInFailure ran. Error is :', error)
 }
 
+// for moves
+const moveSuccess = function () {
+
+
+  console.log('moveSuccess ran and nothing was returned!')
+}
+
+const moveFailure = function (error) {
+  $('#message').text('Error on sign out')
+  $('#message').css('background-color', 'red')
+  console.error('moveFailure ran. Error is :', error)
+}
+//
+
 const signOutSuccess = function () {
   $('#message').text('Signed out successfully')
   $('#outState').css('display', 'none')
@@ -96,5 +110,7 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   sendSuccess,
-  sendFailure
+  sendFailure,
+  moveSuccess,
+  moveFailure
 }

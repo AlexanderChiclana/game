@@ -20,6 +20,12 @@ body{
   width: 100%;
 }
 
+#newGame{
+  position: fixed;
+  background: transparent;
+  border: none;
+  display: none;
+}
 
 h1{
   font-size: 60pt;

@@ -87,6 +87,5 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
-  newGame,
-  sendGame
+  newGame
 }
