@@ -1,74 +1,12 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+Technologies used include: JavaScript, JQuery HTML, SCSS, AJAX requests, 
 
-# browser-template
+Neon Styling credit goes to Thomas Trinca
+https://codemyui.com/glowing-flicker-neon-text-effect/
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+Planning included user stories, wireframing, and diagraming the game logic with pen and paper. I started by mapping the game logic to JavaScript arrays and figured out how to emulate a 3X3 grid. I used my user stories to determine how I needed the board to function, ie what constitutes a win, what isn’t allowed, and when the game is tied.
+I used a series of arrays to represent each possible win condition and upon each click of the grid, that would fill the box  with an alternating X or O, from a  9 length bank array that would shorten after each placement. This would also insert that character into the corresponding array of win conditions. After each placement I used a win checking function to see if any of the win condition arrays were filled with the same character. I also used a tie checking function to see if the bank array had reached zero without the win condition having been met. My problem solving strategy during this phase was largely about how to manipulate data into data types that made sense for the problems at hand. I needed to be very careful about the ordering of functions in my game, because it was very easy to break my game since I was running so many processes at once. I needed to do a lot of research on methods I didn’t know about, but because I knew specifically how I wanted to manipulate certain bits of data, I was able to search these out and apply them to my game. 
+I also found the API section very difficult, and my pace dropped significantly once I got to it. I realized that I had some fundamental misunderstandings about how AJAX calls worked, and once I figured out what I was missing, I was able to implement all of the requirements except for retrieving game history. I also ran into trouble with the structuring of my files. I began by building everything into my index, and then used separate files for the AJAX calls, this became difficult to work with because I was trying to pass data in both directions at a point, and I had trouble accessing data.  
 
-## Installation
-
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
-
-## Structure
-
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
-
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`config/environment.js`](config/environment.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
-
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
-
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
-
-To deploy a browser-template based SPA, run `grunt deploy`.
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt test`: runs any automated tests, depends on `grunt build`
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+Unsolved Problems:
+Include a game retrieval button
+Find a way to clear the forms after entry (I had a method but it was clearing before the AJAX req)  
