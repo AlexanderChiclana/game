@@ -27,6 +27,7 @@ I used a series of arrays to represent each possible win condition and upon each
 I needed to do a lot of research on methods I didn’t know about, but because I knew specifically how I wanted to manipulate certain bits of data, I was able to search these out and apply them to my game. I also found the API section very difficult, and my pace dropped significantly once I got to it. I realized that I had some fundamental misunderstandings about how AJAX calls worked, and once I figured out what I was missing, I was able to implement all of the requirements except for retrieving game history. I also ran into trouble with the structuring of my files. I began by building everything into my index, and then used separate files for the AJAX calls, this became difficult to work with because I was trying to pass data in both directions at a point, and I had trouble accessing data.  
 
 Unsolved Problems:
+
 Include a game retrieval button
 Show score changing after each win 
 Find a way to clear the forms after entry (I had a method but it was clearing before the AJAX req)  
