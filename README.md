@@ -1,4 +1,5 @@
 Technologies used include: JavaScript, JQuery HTML, SCSS, AJAX requests. Developed on a Windows PC using Google Chrome and Bash Ubuntu.  
+
 Neon Styling credit goes to Thomas Trinca
 https://codemyui.com/glowing-flicker-neon-text-effect/
 
@@ -29,5 +30,7 @@ I needed to do a lot of research on methods I didn’t know about, but because I
 Unsolved Problems:
 
 Include a game retrieval button
+
 Show score changing after each win 
+
 Find a way to clear the forms after entry (I had a method but it was clearing before the AJAX req)  
