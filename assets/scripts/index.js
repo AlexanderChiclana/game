@@ -14,13 +14,7 @@ const ui = require('./auth/ui.js')
 // array sections
 let bank = ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x']
 
-// let cells = ['', '', '', '', '', '', '', '', '']
 
-// let currentIndex = null
-
-// let currentValue = null
-
-// horizontal arrays
 
 let firstRow = []
 
@@ -114,7 +108,7 @@ const sendGame = function (index, value) {
         "cell": {
           "index": `${index}`,
           "value": `${value}`
-        }s
+        }
       }
     },
     headers: {
@@ -123,7 +117,7 @@ const sendGame = function (index, value) {
   })
 }
 
-const gameOver = function (index, value) {
+const gameOver = function () {
   // bank.shift()
   // winCheck()
   return $.ajax({
@@ -145,30 +139,6 @@ $(() => {
 
   authEvents.addHandlers()
 
-
-
-
-
-  // all of the boards moves for API
-
-
-
-  // let moveCalc = function () {
-
-  //   cells[0] = firstRow[0]
-  //   cells[1] = firstRow[1]
-  //   cells[2] = firstRow[2]
-  //   cells[3] = secondRow[0]
-  //   cells[4] = secondRow[1]
-  //   cells[5] = secondRow[2]
-  //   cells[6] = thirdRow[0]
-  //   cells[7] = thirdRow[1]
-  //   cells[8] = thirdRow[2]
-
-  // }
-
-
-
   $('#reset').on('click', function () {
     // reset arrays
 
@@ -187,8 +157,6 @@ $(() => {
 
   })
 
-
-  // check for tie
 
 
 
@@ -232,6 +200,8 @@ $(() => {
       // console.log(cells)
 
       sendGame(1, bank[0])
+      .then(ui.moveSuccess)
+        .catch(ui.moveFailure)
       // winCheck()
 
 
@@ -462,6 +432,9 @@ $(() => {
     if (event.target == modal || event.target == outModal) {
       modal.style.display = "none";
       outModal.style.display = "none"
+      $('.modal-content').css('border-color', 'rgba(35, 194, 230, 0.747)')
+      $('.out-modal-content').css('border-color', 'rgba(35, 194, 230, 0.747)')
+
     }
   }
 

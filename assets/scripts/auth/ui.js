@@ -11,8 +11,6 @@ const sendFailure = function (error) {
 }
 
 const newGameSuccess = function (data) {
-  $('#message').text('Signed up successfully')
-  $('.modal-content').css('border-color', 'green')
   console.log('newGameSuccess ran. Data is :', data)
   store.game = data.game
 }
@@ -24,20 +22,17 @@ const newGameFailure = function (error) {
 }
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully')
   $('.modal-content').css('border-color', 'green')
   console.log('signUpSuccess ran. Data is :', data)
 }
 
 const signUpFailure = function (error) {
-  $('#message').text('Error on sign up')
   $('.modal-content').css('border-color', 'red')
   console.error('signUpFailure ran. Error is :', error)
 }
 
 const signInSuccess = function (data) {
 
-  $('#message').text('Signed in successfully')
   $('#myModal').css('display', 'none')
   $('#reset').trigger('click')
   $('#signIn').css('visibility','hidden')
@@ -50,7 +45,6 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  $('#message').text('Error on sign in')
   $('.modal-content').css('border-color', 'red')
   console.error('signInFailure ran. Error is :', error)
 }
@@ -63,8 +57,6 @@ const moveSuccess = function (data) {
 }
 
 const moveFailure = function (error) {
-  $('#message').text('Error on sign out')
-  $('#message').css('background-color', 'red')
   console.error('moveFailure ran. Error is :', error)
 
 }
@@ -79,7 +71,6 @@ const doneFailure = function (error) {
 //
 
 const signOutSuccess = function () {
-  $('#message').text('Signed out successfully')
   $('#outState').css('display', 'none')
   $('#signIn').css('visibility','visible')
   $('#signOut').css('visibility','hidden')
@@ -88,20 +79,16 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function (error) {
-  $('#message').text('Error on sign out')
-  $('#message').css('background-color', 'red')
   console.error('signOutFailure ran. Error is :', error)
 }
 
 const changePasswordSuccess = function () {
-  $('#message').text('Changed password successfully')
-  $('#message').css('background-color', 'green')
+  $('.out-modal-content').css('border-color', 'green')
   console.log('changePasswordSuccess ran and nothing was returned!')
 }
 
 const changePasswordFailure = function (error) {
-  $('#message').text('Error on change password')
-  $('#message').css('background-color', 'red')
+  $('.out-modal-content').css('border-color', 'red')
   console.error('changePasswordFailure ran. Error is :', error)
 }
 
