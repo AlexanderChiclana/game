@@ -22,23 +22,6 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
-// for sending moves
-// const onSend = function (event) {
-
-//   event.preventDefault()
-//   console.log(indexJs.currentValue)
-//   console.log(indexJs.currentIndex)
-//   console.log('new game created')
-
-
-
-//   api.sendGame(index, value)
-//     .then(ui.sendSuccess)
-//     .catch(ui.sendFailure)
-// }
-
-
-
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -79,13 +62,21 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const onGetGames = function (event) {
+  event.preventDefault()
+  api.index()
+    .then(ui.onGetSucess)
+    .catch(ui.onGetFailure)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#newGame').on('click', onNewGame)
-  // $('#reset').on('click', index.visualReset)
+  // get games
+  $('#getGames').on('click', onGetGames)
 }
 
 module.exports = {

@@ -92,6 +92,21 @@ const changePasswordFailure = function (error) {
   console.error('changePasswordFailure ran. Error is :', error)
 }
 
+const onGetSucess = function (data) {
+  data.games.forEach(games => {
+    const gameHTML = (`
+      <h4> Game ${games.id} has a record of ${games.cells}</h4>
+    `)
+    $('#gameHistory').append(gameHTML)
+  })
+  console.table(data.games)
+}
+
+const onGetFailure = function (err) {
+  console.error(err)
+}
+
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -108,5 +123,7 @@ module.exports = {
   moveSuccess,
   moveFailure,
   doneSuccess,
-  doneFailure
+  doneFailure,
+  onGetSucess,
+  onGetFailure
 }

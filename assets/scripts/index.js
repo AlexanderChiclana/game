@@ -14,6 +14,7 @@ const ui = require('./auth/ui.js')
 // array sections
 let bank = ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x']
 
+let clearSpots = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
 
 let firstRow = []
@@ -92,6 +93,8 @@ const winCheck = function () {
       .catch(ui.doneFailure)
 
   } else {
+    // AI functioning can go here
+
 
     tieCheck()
   }
@@ -166,6 +169,7 @@ $(() => {
     // code for already placed
     if ($('#B0').is(':empty')) {
 
+      clearSpots
       // code for valid move
       // places move, adds to row/col array, and takes away from bank
       $('#B0').html(bank[0])
