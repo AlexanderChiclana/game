@@ -14,7 +14,7 @@ const ui = require('./auth/ui.js')
 // array sections
 let bank = ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x']
 
-let clearSpots = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+// let clearSpots = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
 
 let firstRow = []
@@ -169,7 +169,7 @@ $(() => {
     // code for already placed
     if ($('#B0').is(':empty')) {
 
-      clearSpots
+      // clearSpots
       // code for valid move
       // places move, adds to row/col array, and takes away from bank
       $('#B0').html(bank[0])
@@ -433,16 +433,41 @@ $(() => {
   }
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
-    if (event.target == modal || event.target == outModal) {
+    if (event.target == modal || event.target == outModal || event.target == modalTwo) {
       modal.style.display = "none";
       outModal.style.display = "none"
+      modalTwo.style.display = "none"
       $('.modal-content').css('border-color', 'rgba(35, 194, 230, 0.747)')
       $('.out-modal-content').css('border-color', 'rgba(35, 194, 230, 0.747)')
 
     }
   }
 
+  // modal 2
+  var modalTwo = document.getElementById('myModalTwo');
 
+// Get the button that opens the modal
+  var btnTwo = document.getElementById("getGames");
+
+// Get the <span> element that closes the modal
+  var spanTwo = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btnTwo.onclick = function() {
+    modalTwo.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+spanTwo.onclick = function() {
+    modalTwo.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modalTwo.style.display = "none";
+//     }
+// }
 
 
 

@@ -35,7 +35,8 @@ const signInSuccess = function (data) {
 
   $('#myModal').css('display', 'none')
   $('#reset').trigger('click')
-  $('#signIn').css('visibility','hidden')
+  $('#signIn').css('display','none')
+  $('#getGames').css('display', 'block')
   $('#signOut').css('visibility','visible')
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
@@ -72,8 +73,10 @@ const doneFailure = function (error) {
 
 const signOutSuccess = function () {
   $('#outState').css('display', 'none')
-  $('#signIn').css('visibility','visible')
+  $('#signIn').css('display','block')
   $('#signOut').css('visibility','hidden')
+  $('#getGames').css('display', 'none')
+
   console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
@@ -93,9 +96,10 @@ const changePasswordFailure = function (error) {
 }
 
 const onGetSucess = function (data) {
+  $('#gameHistory').html('')
   data.games.forEach(games => {
     const gameHTML = (`
-      <h4> Game ${games.id} has a record of ${games.cells}</h4>
+      Game ${games.id} has_a_record_of ${games.cells} </br>
     `)
     $('#gameHistory').append(gameHTML)
   })
