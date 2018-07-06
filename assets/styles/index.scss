@@ -18,6 +18,7 @@ body{
   background-size: 100% 100%;
   height: 100%;
   width: 100%;
+  min-width: 850px;
 }
 
 
@@ -66,7 +67,7 @@ h1{
   border-width: 5px;
   font-size: 90px;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 25px;
   font-family: neon;
 
 }
@@ -317,26 +318,26 @@ body{
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: black;
-  border-color: rgba(35, 194, 230, 0.747);
-  margin: 15% auto; /* 15% from the top and centered */
+  background-color: rgba(0, 0, 0, .7);
+  border-color: rgba(35, 194, 230, 0.5);
+  margin: 135px auto; /* 15% from the top and centered */
   padding: 20px;
   border-style: solid;
   border-width: 5px;
-  width: 65%; /* Could be more or less, depending on screen size */
-  height: 350px;
+  width: 700px; /* Could be more or less, depending on screen size */
+  height: 700px;
   border-radius: 10px;
 }
 
 .out-modal-content {
-  background-color: black;
-  border-color: rgba(35, 194, 230, 0.747);
-  margin: 15% auto; /* 15% from the top and centered */
+  background-color: rgba(0, 0, 0, 0.7);
+  border-color: rgba(35, 194, 230, 0.5);
+  margin: 162px auto; /* 15% from the top and centered */
   padding: 20px;
   border-style: solid;
   border-width: 5px;
-  width: 65%; /* Could be more or less, depending on screen size */
-  height: 350px;
+  width: 600px; /* Could be more or less, depending on screen size */
+  height: 600px;
   border-radius: 10px;
 }
 /* The Close Button */
@@ -396,13 +397,13 @@ fieldset{
 
 /* Modal Content/Box */
 .modal-two-content {
-  background-color: black;
-  border-color: rgba(35, 194, 230, 0.747);
+  background-color: rgba(0, 0, 0, 0.7);
+  border-color: rgba(35, 194, 230, 0.5);
   margin: 5% auto; /* 15% from the top and centered */
   padding: 20px;
   border-style: solid;
   border-width: 5px;
-  width: 55%; /* Could be more or less, depending on screen size */
+  width: 900px; /* Could be more or less, depending on screen size */
   height: 700px;
   border-radius: 10px;
   // text-align: center;
@@ -418,3 +419,35 @@ fieldset{
 //end of modal
 
 
+#signOutButton{
+  width: 100%;
+}
+
+.buttons{
+  margin-top: 20px;
+  width: 100%;
+  font-family: neon;
+  font-size: 20pt;
+  background-color: black;
+  border-color: rgba(35, 194, 230, 0.5);
+  color: white;
+}
+
+// ::placeholder{
+//   color:red;
+//   background-color: blue;
+// }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
