@@ -186,7 +186,7 @@ $(() => {
       // winCheck()
       // bank.shift()
     } else {
-      console.log('full')
+      // console.log('full')
     }
 
   })
@@ -210,7 +210,7 @@ $(() => {
 
 
     } else {
-      console.log('full')
+      // console.log('full')
     }
   })
 
@@ -236,7 +236,7 @@ $(() => {
       // bank.shift()
 
     } else {
-      console.log('full')
+      // console.log('full')
     }
 
   })
@@ -261,7 +261,7 @@ $(() => {
       // bank.shift()
 
     } else {
-      console.log('full')
+      // console.log('full')
     }
   })
 
@@ -288,7 +288,7 @@ $(() => {
       // bank.shift()
 
     } else {
-      console.log('full')
+      // console.log('full')
     }
   })
 
@@ -313,7 +313,7 @@ $(() => {
       // bank.shift()
 
     } else {
-      console.log('full')
+      // console.log('full')
     }
   })
 
@@ -339,7 +339,7 @@ $(() => {
 
 
     } else {
-      console.log('full')
+      // console.log('full')
     }
   })
 
@@ -364,7 +364,7 @@ $(() => {
       // bank.shift()
 
     } else {
-      console.log('full')
+      // console.log('full')
     }
 
   })
@@ -391,7 +391,7 @@ $(() => {
       // bank.shift()
 
     } else {
-      console.log('full')
+      // console.log('full')
     }
   })
   //end of handlers

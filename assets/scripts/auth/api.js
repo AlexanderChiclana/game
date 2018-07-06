@@ -36,7 +36,7 @@ const signIn = function (data) {
 // game
 
 const newGame = function () {
-  console.log(store)
+  // console.log(store)
   return $.ajax({
     url: config.apiUrl + 'games',
     method: 'POST',
@@ -80,7 +80,7 @@ const signOut = function () {
 }
 
 const changePassword = function (data) {
-  console.log('data is ', data)
+  // console.log('data is ', data)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
