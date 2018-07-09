@@ -346,6 +346,7 @@ body{
   float: right;
   font-size: 28px;
   font-weight: bold;
+  visibility: hidden;
 
 }
 
@@ -354,6 +355,7 @@ body{
   color: rgba(255, 166, 0, 0.568);
   text-decoration: none;
   cursor: pointer;
+  visibility: hidden;
 }
 
 legend{

@@ -204,7 +204,7 @@ $(() => {
       // console.log(cells)
 
       sendGame(1, bank[0])
-      .then(ui.moveSuccess)
+        .then(ui.moveSuccess)
         .catch(ui.moveFailure)
       // winCheck()
 
@@ -411,7 +411,7 @@ $(() => {
 
   let out = document.getElementById("signOut")
   // Get the <span> element that closes the modal
-  let span = document.getElementsByClassName("close")[0];
+  // let span = document.getElementsByClassName("close");
 
   // When the user clicks on the button, open the modal
   btn.onclick = function () {
@@ -424,14 +424,20 @@ $(() => {
 
 
   // When the user clicks on <span> (x), close the modal
-  span.onclick = function () {
-    modal.style.display = "none";
-  }
+  // span.onclick = function () {
+  //   modal.style.display = "none";
+  //     outModal.style.display = "none"
+  //     modalTwo.style.display = "none"
+  //     $('.modal-content').css('border-color', 'rgba(35, 194, 230, 0.747)')
+  //     $('.out-modal-content').css('border-color', 'rgba(35, 194, 230, 0.747)');
+  // }
 
-  span.onclick = function () {
-    outModal.style.display = "none";
-  }
+  // span.onclick = function () {
+  //   outModal.style.display = "none";
+  // }
   // When the user clicks anywhere outside of the modal, close it
+
+
   window.onclick = function (event) {
     if (event.target == modal || event.target == outModal || event.target == modalTwo) {
       modal.style.display = "none";
@@ -446,34 +452,47 @@ $(() => {
   // modal 2
   var modalTwo = document.getElementById('myModalTwo');
 
-// Get the button that opens the modal
+  // Get the button that opens the modal
   var btnTwo = document.getElementById("getGames");
 
-// Get the <span> element that closes the modal
+  // Get the <span> element that closes the modal
   var spanTwo = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-btnTwo.onclick = function() {
+  // When the user clicks on the button, open the modal
+  btnTwo.onclick = function () {
     modalTwo.style.display = "block";
-}
+  }
 
-// When the user clicks on <span> (x), close the modal
-spanTwo.onclick = function() {
+  // When the user clicks on <span> (x), close the modal
+  spanTwo.onclick = function () {
     modalTwo.style.display = "none";
-}
+  }
 
-// When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//     if (event.target == modal) {
-//         modalTwo.style.display = "none";
-//     }
-// }
-
-
+  // When the user clicks anywhere outside of the modal, close it
+  // window.onclick = function(event) {
+  //     if (event.target == modal) {
+  //         modalTwo.style.display = "none";
+  //     }
+  // }
 
 
 
 
+  $("#signIn").hover(function () {
+    $("#signIn").toggleClass("flux").css('cursor', 'pointer')
+  })
+
+  $("#getGames").hover(function () {
+    $("#getGames").toggleClass("flux").css('cursor', 'pointer')
+  })
+
+  $("#reset").hover(function () {
+    $("#reset").toggleClass("flux").css('cursor', 'pointer')
+  })
+
+  $("#signOut").hover(function () {
+    $("#signOut").toggleClass("flux").css('cursor', 'pointer')
+  })
 
 })
 

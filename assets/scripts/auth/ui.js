@@ -103,7 +103,7 @@ const onGetSucess = function (data) {
     `)
     $('#gameHistory').append(gameHTML)
   })
-  console.table(data.games)
+  // console.table(data.games)
 }
 
 const onGetFailure = function (err) {
