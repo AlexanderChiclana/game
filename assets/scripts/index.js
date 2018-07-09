@@ -41,6 +41,7 @@ let diagBot = []
 const tieCheck = function () {
   if (bank.length === 0) {
     $('#winBox').html('_____________TIE_GAME_____________')
+    $('.space').css('pointer-events','none')
     gameOver()
       .then(ui.doneSuccess)
       .catch(ui.doneFailure)
@@ -75,6 +76,7 @@ const winCheck = function () {
 
     bank = []
     $('#winBox').html('______________X_WINS______________')
+    $('.space').css('pointer-events','none')
     gameOver()
       .then(ui.doneSuccess)
       .catch(ui.doneFailure)
@@ -87,6 +89,7 @@ const winCheck = function () {
 
     bank = []
     $('#winBox').html('______________O_WINS______________')
+    $('.space').css('pointer-events','none')
     $('#newGame').click()
     gameOver()
       .then(ui.doneSuccess)
@@ -156,6 +159,8 @@ $(() => {
     diagBot = []
     $('.space').html('')
     $('#winBox').html('')
+    $('.space').css('pointer-events','auto')
+
     // cells = []
 
   })

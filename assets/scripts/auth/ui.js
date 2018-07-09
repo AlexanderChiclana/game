@@ -76,6 +76,7 @@ const signOutSuccess = function () {
   $('#signIn').css('display','block')
   $('#signOut').css('visibility','hidden')
   $('#getGames').css('display', 'none')
+  $('#reset').trigger('click')
 
   // console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
