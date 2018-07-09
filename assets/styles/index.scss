@@ -18,7 +18,10 @@ body{
   background-size: 100% 100%;
   height: 100%;
   width: 100%;
+  min-width: 850px;
 }
+
+
 
 #newGame{
   position: fixed;
@@ -64,7 +67,7 @@ h1{
   border-width: 5px;
   font-size: 90px;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 25px;
   font-family: neon;
 
 }
@@ -108,7 +111,7 @@ body{
   // margin-right: auto;
   // margin-left: auto;
   // margin-top: 30px;
-  font-size: 35pt;
+  font-size: 30pt;
   text-align: center;
   border-radius: 10px;
   font-family: neon;
@@ -116,12 +119,23 @@ body{
 
 }
 
+#getGames{
+  height: 80px;
+  width: 300px;
+  float: left;
+  display: none;
+  font-size: 31pt;
+
+
+}
 
 #signIn{
   display: block;
   height: 80px;
   width: 300px;
   float: left;
+  font-size: 31pt;
+
 }
 
 #signOut{
@@ -130,6 +144,8 @@ body{
   width: 300px;
   float: right;
   visibility: hidden;
+  font-size: 31pt;
+
 }
 
 
@@ -227,8 +243,8 @@ body{
 .flux {
   font-family: neon;
   color: #426DFB;
-  font-size: 9vw;
-  line-height: 9vw;
+  font-size: 30pt;
+  // line-height: 9vw;
   text-shadow: 0 0 0vw #2356FF;
 }
 
@@ -302,26 +318,26 @@ body{
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: black;
-  border-color: rgba(35, 194, 230, 0.747);
-  margin: 15% auto; /* 15% from the top and centered */
+  background-color: rgba(0, 0, 0, .7);
+  border-color: rgba(35, 194, 230, 0.5);
+  margin: 135px auto; /* 15% from the top and centered */
   padding: 20px;
   border-style: solid;
   border-width: 5px;
-  width: 65%; /* Could be more or less, depending on screen size */
-  height: 350px;
+  width: 700px; /* Could be more or less, depending on screen size */
+  height: 700px;
   border-radius: 10px;
 }
 
 .out-modal-content {
-  background-color: black;
-  border-color: rgba(35, 194, 230, 0.747);
-  margin: 15% auto; /* 15% from the top and centered */
+  background-color: rgba(0, 0, 0, 0.7);
+  border-color: rgba(35, 194, 230, 0.5);
+  margin: 162px auto; /* 15% from the top and centered */
   padding: 20px;
   border-style: solid;
   border-width: 5px;
-  width: 65%; /* Could be more or less, depending on screen size */
-  height: 350px;
+  width: 600px; /* Could be more or less, depending on screen size */
+  height: 600px;
   border-radius: 10px;
 }
 /* The Close Button */
@@ -330,6 +346,7 @@ body{
   float: right;
   font-size: 28px;
   font-weight: bold;
+  visibility: hidden;
 
 }
 
@@ -338,6 +355,7 @@ body{
   color: rgba(255, 166, 0, 0.568);
   text-decoration: none;
   cursor: pointer;
+  visibility: hidden;
 }
 
 legend{
@@ -353,5 +371,85 @@ fieldset{
   font-family: arial;
 }
 
+// modal 2
+#gameHistory{
+  height: 600px;
+  width: 100%;
+  display: block;
+  overflow: scroll;
+  overflow-x: hidden;
+  color: orange;
+  font-family: neon;
+  font-size: 20pt;
+  padding-left: 5%;
+}
 
+.modalTwo {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-two-content {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-color: rgba(35, 194, 230, 0.5);
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border-style: solid;
+  border-width: 5px;
+  width: 900px; /* Could be more or less, depending on screen size */
+  height: 700px;
+  border-radius: 10px;
+  // text-align: center;
+}
+/* The Close Button */
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 //end of modal
+
+
+#signOutButton{
+  width: 100%;
+}
+
+.buttons{
+  margin-top: 20px;
+  width: 100%;
+  font-family: neon;
+  font-size: 20pt;
+  background-color: black;
+  border-color: rgba(35, 194, 230, 0.5);
+  color: white;
+}
+
+// ::placeholder{
+//   color:red;
+//   background-color: blue;
+// }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

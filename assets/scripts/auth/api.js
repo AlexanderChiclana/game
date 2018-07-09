@@ -3,6 +3,16 @@
 const config = require('../config')
 const store = require('../store')
 
+const index = function () {
+  return $.ajax({
+    url: config.apiUrl + 'games?over=true',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const signUp = function (data) {
   return $.ajax({
     url: config.apiUrl + 'sign-up',
@@ -26,7 +36,7 @@ const signIn = function (data) {
 // game
 
 const newGame = function () {
-  console.log(store)
+  // console.log(store)
   return $.ajax({
     url: config.apiUrl + 'games',
     method: 'POST',
@@ -70,7 +80,7 @@ const signOut = function () {
 }
 
 const changePassword = function (data) {
-  console.log('data is ', data)
+  // console.log('data is ', data)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -87,5 +97,6 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
-  newGame
+  newGame,
+  index
 }

@@ -16,33 +16,16 @@ const ui = require('./ui')
 const onNewGame = function (event) {
   event.preventDefault()
 
-  console.log('new game created')
+  // console.log('new game created')
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
 }
 
-// for sending moves
-// const onSend = function (event) {
-
-//   event.preventDefault()
-//   console.log(indexJs.currentValue)
-//   console.log(indexJs.currentIndex)
-//   console.log('new game created')
-
-
-
-//   api.sendGame(index, value)
-//     .then(ui.sendSuccess)
-//     .catch(ui.sendFailure)
-// }
-
-
-
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('sign up ran!')
+  // console.log('sign up ran!')
 
   const data = getFormFields(this)
   api.signUp(data)
@@ -52,7 +35,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('sign in ran!')
+  // console.log('sign in ran!')
 
   const data = getFormFields(this)
   api.signIn(data)
@@ -62,7 +45,7 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('sign out ran')
+  // console.log('sign out ran')
 
   api.signOut()
     .then(ui.signOutSuccess)
@@ -71,12 +54,19 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('change password ran!')
+  // console.log('change password ran!')
 
   const data = getFormFields(this)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
+}
+
+const onGetGames = function (event) {
+  event.preventDefault()
+  api.index()
+    .then(ui.onGetSucess)
+    .catch(ui.onGetFailure)
 }
 
 const addHandlers = () => {
@@ -85,7 +75,8 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#newGame').on('click', onNewGame)
-  // $('#reset').on('click', index.visualReset)
+  // get games
+  $('#getGames').on('click', onGetGames)
 }
 
 module.exports = {

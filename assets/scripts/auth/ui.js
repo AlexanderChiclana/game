@@ -3,7 +3,7 @@
 const store = require('../store')
 
 const sendSuccess = function (data) {
-  console.log('sendSuccess ran. Data is :', data)
+  // console.log('sendSuccess ran. Data is :', data)
 }
 
 const sendFailure = function (error) {
@@ -11,7 +11,7 @@ const sendFailure = function (error) {
 }
 
 const newGameSuccess = function (data) {
-  console.log('newGameSuccess ran. Data is :', data)
+  // console.log('newGameSuccess ran. Data is :', data)
   store.game = data.game
 }
 
@@ -23,7 +23,7 @@ const newGameFailure = function (error) {
 
 const signUpSuccess = function (data) {
   $('.modal-content').css('border-color', 'green')
-  console.log('signUpSuccess ran. Data is :', data)
+  // console.log('signUpSuccess ran. Data is :', data)
 }
 
 const signUpFailure = function (error) {
@@ -35,12 +35,13 @@ const signInSuccess = function (data) {
 
   $('#myModal').css('display', 'none')
   $('#reset').trigger('click')
-  $('#signIn').css('visibility','hidden')
+  $('#signIn').css('display','none')
+  $('#getGames').css('display', 'block')
   $('#signOut').css('visibility','visible')
-  console.log('signInSuccess ran. Data is :', data)
+  // console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
   $('#newGame').click()
-  console.log('here is the store ', store)
+  // console.log('here is the store ', store)
 
 }
 
@@ -53,7 +54,7 @@ const signInFailure = function (error) {
 const moveSuccess = function (data) {
 
 
-  console.log('moveSuccess ran and heres the data: ', data)
+  // console.log('moveSuccess ran and heres the data: ', data)
 }
 
 const moveFailure = function (error) {
@@ -62,7 +63,7 @@ const moveFailure = function (error) {
 }
 
 const doneSuccess = function (data) {
-  console.log('doneSuccess ran. Data is :', data)
+  // console.log('doneSuccess ran. Data is :', data)
 }
 
 const doneFailure = function (error) {
@@ -72,9 +73,11 @@ const doneFailure = function (error) {
 
 const signOutSuccess = function () {
   $('#outState').css('display', 'none')
-  $('#signIn').css('visibility','visible')
+  $('#signIn').css('display','block')
   $('#signOut').css('visibility','hidden')
-  console.log('signOutSuccess ran and nothing was returned!')
+  $('#getGames').css('display', 'none')
+
+  // console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
 
@@ -84,13 +87,29 @@ const signOutFailure = function (error) {
 
 const changePasswordSuccess = function () {
   $('.out-modal-content').css('border-color', 'green')
-  console.log('changePasswordSuccess ran and nothing was returned!')
+  // console.log('changePasswordSuccess ran and nothing was returned!')
 }
 
 const changePasswordFailure = function (error) {
   $('.out-modal-content').css('border-color', 'red')
   console.error('changePasswordFailure ran. Error is :', error)
 }
+
+const onGetSucess = function (data) {
+  $('#gameHistory').html('')
+  data.games.forEach(games => {
+    const gameHTML = (`
+      Game ${games.id} has_a_record_of ${games.cells} </br>
+    `)
+    $('#gameHistory').append(gameHTML)
+  })
+  // console.table(data.games)
+}
+
+const onGetFailure = function (err) {
+  console.error(err)
+}
+
 
 module.exports = {
   signUpSuccess,
@@ -108,5 +127,7 @@ module.exports = {
   moveSuccess,
   moveFailure,
   doneSuccess,
-  doneFailure
+  doneFailure,
+  onGetSucess,
+  onGetFailure
 }
