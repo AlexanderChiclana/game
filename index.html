@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+</head>
+
+<body>
+
+  <button id="newGame">
+    NEW GAME
+  </button>
+
+  <h1 class="neon" id="title">___________Tic_Tac_Toe___________</h1>
+
+  <div id="container">
+
+
+
+    <div class="flux" id="wrapper">
+      <div class="space" id="B0"></div>
+      <div class="space" id="B1"></div>
+      <div class="space" id="B2"></div>
+      <div class="space" id="B3"></div>
+      <div class="space" id="B4"></div>
+      <div class="space" id="B5"></div>
+      <div class="space" id="B6"></div>
+      <div class="space" id="B7"></div>
+      <div class="space" id="B8"></div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <!-- modal -->
+
+
+  <div id="menu">
+    <!-- Trigger/Open The Modal -->
+    <div id="signIn" class="neon"> <br> Sign__In</div>
+    <div id="getGames" class="neon"> </br> history </div>
+    <div id="reset" class="neon"> RESET</div>
+    <div id="signOut" class="neon"> </br>Log__Out</div>
+
+  </div>
+
+  <div class="neon" id="winBox">
+
+  </div>
+
+
+  <!-- The Login Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <form id="sign-in" class="border">
+
+
+        <fieldset>
+          <legend>_Log_in_</legend>
+          <input type="text" name="credentials[email]" placeholder="Email" class="buttons">
+
+          <input type="password" name="credentials[password]" placeholder="Password" class="buttons">
+
+          <input type="submit" value="Sign in!"  class="buttons">
+
+        </fieldset>
+      </form>
+    </br>
+    </br>
+    </br>
+      <form id="sign-up" class="border">
+
+        <fieldset>
+
+          <legend>_Sign_up_</legend>
+
+          <input type="text" name="credentials[email]" placeholder="Email" class="buttons">
+
+          <input type="password" name="credentials[password]" placeholder="Password" class="buttons">
+
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="buttons">
+
+          <input type="submit" value="Sign up!"class="buttons">
+
+        </fieldset>
+
+      </form>
+      <br>
+
+
+    </div>
+  </div>
+
+
+  <!-- Out Modal content -->
+
+  <div id="outState" class="outModal">
+
+    <!-- Modal content -->
+    <div class="out-modal-content">
+      <span class="close">&times;</span>
+
+      <form id="sign-out" class="border">
+          <fieldset>
+            <legend>Sign__Out!</legend>
+            <input type="submit" value="Sign out!" class="buttons" id="signOutButton">
+          </fieldset>
+        </form>
+      </br>
+    </br>
+    </br>
+        <form id="change-password" class="border">
+          <fieldset>
+            <legend>Change__Password!</legend>
+            <input type="password" name="passwords[old]" placeholder="Old Password" class="buttons">
+            <input type="password" name="passwords[new]" placeholder="New Password" class="buttons">
+            <input type="submit" value="Change Password!" class="buttons">
+          </fieldset>
+        </form>
+
+    </div>
+  </div>
+
+
+
+  <!-- Modal Section-->
+
+  <div id="myModalTwo" class="modalTwo">
+
+    <!-- Modal content -->
+    <div class="modal-two-content">
+      <span class="close">&times;</span>
+       <div id="gameHistory">
+      </div>
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>
